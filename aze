@@ -1,0 +1,31 @@
+==81300== Memcheck, a memory error detector
+==81300== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==81300== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==81300== Command: ./arcade ./lib/arcade_sfml.so
+==81300== 
+libdecor-gtk-WARNING: Failed to initialize GTK
+Failed to load plugin 'libdecor-gtk.so': failed to init
+==81300== 
+==81300== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==81300==  Bad permissions for mapped region at address 0x52028A0
+==81300==    at 0x52028A0: ??? (in /usr/lib64/libxcb-shm.so.0.0.0)
+==81300==    by 0x521DD99: wrefresh (lib_refresh.c:66)
+==81300==    by 0x51C33CE: arcade::ArcadeNcurses::display(arcade::data_s const&) (in /home/solype/delivery/current_days/arcade/lib/arcade_ncurses.so)
+==81300==    by 0x40523E: arcade::Core::loop() (in /home/solype/delivery/current_days/arcade/arcade)
+==81300==    by 0x404261: arcade::Core::Core(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/solype/delivery/current_days/arcade/arcade)
+==81300==    by 0x40334F: main (in /home/solype/delivery/current_days/arcade/arcade)
+==81300== 
+==81300== HEAP SUMMARY:
+==81300==     in use at exit: 1,634,916 bytes in 15,382 blocks
+==81300==   total heap usage: 233,606 allocs, 218,224 frees, 396,049,203 bytes allocated
+==81300== 
+==81300== LEAK SUMMARY:
+==81300==    definitely lost: 5,161 bytes in 12 blocks
+==81300==    indirectly lost: 18,101 bytes in 764 blocks
+==81300==      possibly lost: 65,996 bytes in 728 blocks
+==81300==    still reachable: 1,541,634 bytes in 13,837 blocks
+==81300==         suppressed: 0 bytes in 0 blocks
+==81300== Rerun with --leak-check=full to see details of leaked memory
+==81300== 
+==81300== For lists of detected and suppressed errors, rerun with: -s
+==81300== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
